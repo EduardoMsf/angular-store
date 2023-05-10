@@ -1,7 +1,33 @@
+<h1>NgModel</h1>
+<p>Nombre {{person.name}}</p>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name"/>
+<input type="number" max="25" required #ageInput="ngModel" [(ngModel)]="person.age"/>
+<p>Valid: {{nameInput.valid}}</p>
+<p>Valid: {{ageInput.valid}}</p>
+<p>{{person.age}}</p>
+
+
+<hr />
+<h1>Eventos</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<button (click)="toggleButton()">Toggle button</button>
+<p>Edad: {{person.age}}</p>
+<button (click)="increaseAge()">Aumenta la edad</button>
+<div class="box" (scroll)="onScroll($event)">
+  <p>Eiusmod Lorem eu laboris aute proident est laborum enim non sunt ex consequat. Id ad exercitation minim deserunt consectetur id enim excepteur qui duis. Occaecat magna laboris elit id. Fugiat aliquip est sint exercitation eiusmod veniam quis dolore nulla. Excepteur nisi aute culpa est duis dolor officia elit sunt ut anim sint ut dolor. Velit fugiat ex mollit reprehenderit reprehenderit sint. Ullamco non velit nisi consectetur nostrud.</p>
+</div>
+<input type="text" [placeholder]="name" (keyup)="changeName($event)"/>
+
+
+
+<hr />
 <h1>Apoco si desde Angular</h1>
-<h2>{{ name }}</h2>
+<button [disabled]="btnDisabled">Boton apoco si</button>
+<h2>{{ person.name }}</h2>
 <p>{{ age }}</p>
+<input type="text" [placeholder]="name" />
+<progress max="100" [value]="person.age"></progress>
 <figure>
-  <img src={{img}} alt="Hola"/>
+  <img [src]="img" alt="Hola"/>
   <figcaption>Avatar</figcaption>
 </figure>
