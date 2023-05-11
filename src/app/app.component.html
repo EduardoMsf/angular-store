@@ -6,7 +6,7 @@
 <h1>ngFor</h1>
 <button (click)="addNewName()">Nuevo nombre</button>
 <input type="text" required #newNameInput="ngModel"  [(ngModel)]="newName"/>
-<ul style="">
+<ul>
   <li *ngFor="let name of names; index as i" >
     {{i+1}}-{{name}}
     <button (click)="deleteName(i)">Eliminar</button>
