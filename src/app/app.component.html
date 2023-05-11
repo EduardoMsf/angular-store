@@ -1,3 +1,10 @@
+<h1>*ngIf</h1>
+<input type="text" required [(ngModel)]="person.name"/>
+<p *ngIf="person.name === 'Samaniego'">Eduardo</p>
+<p *ngIf="person.name === 'Monsalvo'">José</p>
+
+
+<hr />
 <h1>NgModel</h1>
 <p>Nombre {{person.name}}</p>
 <input type="text" required #nameInput="ngModel" [(ngModel)]="person.name"/>
@@ -28,6 +35,6 @@
 <input type="text" [placeholder]="name" />
 <progress max="100" [value]="person.age"></progress>
 <figure>
-  <img [src]="img" alt="Hola"/>
+  <img class="images " [src]="img" alt="Hola"/>
   <figcaption>Avatar</figcaption>
 </figure>
