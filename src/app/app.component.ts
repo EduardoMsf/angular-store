@@ -17,6 +17,15 @@ export class AppComponent {
     avatar: this.img
   }
 
+  names: string[] = ['Elizabeth', 'Ingrid', 'Ari', 'Katarina'];
+  newName = '';
+
+
+  addNewName(){
+    this.names.push(this.newName);
+    this.newName = '';
+  }
+
   toggleButton() {
     this.btnDisabled = !this.btnDisabled;
   }
@@ -33,5 +42,9 @@ export class AppComponent {
   changeName(event: Event) {
     const element = event.target as HTMLInputElement;
     this.person.name = element.value;
+  }
+
+  deleteName(index: number){
+    this.names.splice(index, 1)
   }
 }
