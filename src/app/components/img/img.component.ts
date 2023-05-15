@@ -1,15 +1,23 @@
-import { Component, Input, Output, EventEmitter, OnChanges, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, OnInit, AfterViewInit, OnDestroy, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-img',
   templateUrl: './img.component.html',
   styleUrls: ['./img.component.scss']
 })
-export class ImgComponent implements OnInit, OnChanges{
-  @Input() img: string = "";
+export class ImgComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy{
+
+  img: string= "";
+  @Input('img')
+    set changeImg( newImg: string ){
+      this.img = newImg;
+      console.log("change just img", this.img);
+    }
   @Output() loaded = new EventEmitter<string>();
 
   imageDefault: string ="https://picsum.photos/200";
+  // counter: number = 0;
+  // counterFunction: any;
 
 
   constructor(){
@@ -18,11 +26,12 @@ export class ImgComponent implements OnInit, OnChanges{
     console.log("constructor, img value =>", this.img)
   }
 
-  ngOnChanges (){
+  ngOnChanges (changes: SimpleChanges){
 
     //before render
     //n times
      console.log('OnChanges, img value =>', this.img)
+     console.log(changes)
   }
 
   ngOnInit(): void {
@@ -31,6 +40,10 @@ export class ImgComponent implements OnInit, OnChanges{
     // async fetch once time
 
     console.log("on init, img value =>", this.img)
+    // this.counterFunction = setInterval(() => {
+    //   this.counter += 1;
+    //   console.log(this.counter)
+    // }, 1000)
   }
 
   ngAfterViewInit() {
@@ -40,6 +53,7 @@ export class ImgComponent implements OnInit, OnChanges{
   }
 
   ngOnDestroy () {
+    // clearInterval(this.counterFunction)
     console.log("on destroy, img value =>", this.img)
   }
 

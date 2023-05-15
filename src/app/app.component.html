@@ -1,3 +1,10 @@
-<input class="bloque" type="text" [(ngModel)]="imgParent"/>
-<app-img (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
-<app-product [product]="product" *ngFor="let product of products"></app-product>
+<!-- <input class="bloque" type="text" [(ngModel)]="imgParent"/>
+<button (click)="toggleImg()">Toggle</button>
+<p>{{ showImg }}</p>
+<app-img *ngIf="showImg" (loaded)="onLoaded($event)" [img]="imgParent"></app-img>
+<hr/> -->
+
+<app-nav></app-nav>
+<app-products></app-products>
+
+
